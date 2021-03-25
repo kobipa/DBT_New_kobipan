@@ -1,39 +1,39 @@
 version: 2
 
 sources:
- -  name: jaffle_shop
-    description: A clon of Postagres app tables
-    database: raw
-    tables:
-    -    name: customers
-         description: raw data for customers 
-         columns:
-         - name: id
-         tests:
-         -  unique
-         -  not_null
-    -    name: orders
-         loaded_at_field: _etl_loaded_at
-         freshness:
+   - name: jaffle_shop
+     description: A clon of Postagres app tables
+     database: raw
+     tables:
+      - name: customers
+        description: raw data for customers 
+        columns:
+            - name: id
+              tests:
+                  - unique
+                  - not_null
+      - name: orders
+        loaded_at_field: _etl_loaded_at
+        freshness:
             warn_after: {count: 12,period: hour}
             error_after: {count: 24,period: hour}
-         columns:
-         - name: id
-         tests:
-         -  unique
-         -  not_null
+        columns:
+            - name: id
+              tests:
+                  - unique
+                  - not_null
     
 
- -  name: STRIPE
-    description: A clon of STRIPE app tables
-    database: raw
-    tables:
-     -  name: PAYMENT
-        description: pyments raw data from Strip
-        loaded_at_field: _batched_at
-        freshness:
-         warn_after: {count: 4,period: hour}
-         error_after: {count: 6,period: hour}
+   - name: STRIPE
+     description: A clon of STRIPE app tables
+     database: raw
+     tables:
+         - name: PAYMENT
+           description: pyments raw data from Strip
+           loaded_at_field: _batched_at
+           freshness:
+               warn_after: {count: 4,period: hour}
+               error_after: {count: 6,period: hour}
 
 
  
