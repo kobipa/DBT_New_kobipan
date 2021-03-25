@@ -1,0 +1,14 @@
+version: 2
+
+models:
+ -  name: Dim_customers
+    description: holds all customers basic data.
+    columns:
+     -   name: NUMBER_OF_ORDERS
+         description: the number of order for customer (all time)
+     -   name: lifetime_value
+         description: Totla order amount for customer 
+ - name: CUSTOMER_TOTAL_PURCHASE
+   columns:
+    - name: PAYMENTMETHOD
+      description: "{{ doc('PAYMENTMETHOD_desc') }}"
